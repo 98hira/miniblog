@@ -17,7 +17,7 @@
           <div>
             <%= link_to "マイページ", "#" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <a href="#">投稿する</a>
+            <%= link_to "投稿する", new_miniblog_path %>
           </div>
         <% else %>
           <div>
