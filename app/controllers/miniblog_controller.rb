@@ -16,6 +16,11 @@ class MiniblogController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
 
+  def update
+    success_flag = Tweet.find(params[:id]).update(tweet_params)
+    @status = success_flag ? "成功": "失敗"
+  end
+
   private
   def tweet_params
    params.permit(:text)
