@@ -3,10 +3,15 @@ class MiniblogController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-    binding.pry
+    tweet = tweet_params.merge(user_id: current_user.id)
+    success_flag = Tweet.create(tweet).valid?
   end
+
+  private
+  def tweet_params
+   params.permit(:text)
+ end
 end
