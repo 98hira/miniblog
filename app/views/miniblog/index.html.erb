@@ -1,2 +1,13 @@
-<h1>Miniblog</h1>
-<p>Find me in app/views/miniblog/index.html.erb</p>
+<% @posts.each do |post| %>
+  <div>
+    <p>
+      <span><%= post.user.nickname %>：</span>
+      <%= post.text %>
+      <%= link_to "SHOW", "#" %>
+      <% if user_signed_in? && current_user.id == post.user_id %>
+        <%= link_to "EDIT", "#" %>
+        <%= link_to "DELETE", "#" %>
+      <% end %>
+    </p>
+  </div>
+<% end %>

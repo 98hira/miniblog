@@ -1,5 +1,6 @@
 class MiniblogController < ApplicationController
   def index
+    @posts = Tweet.includes(:user)
   end
 
   def new
