@@ -1,1 +1,5 @@
 <h2>記事作成画面</h2>
+<%= form_with url: "/miniblog" do |form| %>
+  <%= form.text_area :text %>
+  <%= form.submit %>
+<% end %>
