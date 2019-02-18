@@ -1,0 +1,13 @@
+<h2><%= @nickname %>のページ</h2>
+<% @tweets.each do |tweet| %>
+  <div>
+    <p>
+      <%= tweet.text %>
+      <%= link_to "SHOW", "#" %>
+      <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <%= link_to "EDIT", "miniblog/#{tweet.id}/edit" %>
+        <%= link_to "DELETE", "#" %>
+      <% end %>
+    </p>
+  </div>
+<% end %>
