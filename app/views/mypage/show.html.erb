@@ -5,7 +5,7 @@
       <%= tweet.text %>
       <%= link_to "SHOW", "/miniblog/#{tweet.id}/" %>
       <% if user_signed_in? && current_user.id == tweet.user_id %>
-        <%= link_to "EDIT", "miniblog/#{tweet.id}/edit" %>
+        <%= link_to "EDIT", "/miniblog/#{tweet.id}/edit" %>
         <%= link_to "DELETE", "#" %>
       <% end %>
     </p>

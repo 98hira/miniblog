@@ -5,7 +5,7 @@
       <%= post.text %>
       <%= link_to "SHOW", "/miniblog/#{post.id}" %>
       <% if user_signed_in? && current_user.id == post.user_id %>
-        <%= link_to "EDIT", "miniblog/#{post.id}/edit" %>
+        <%= link_to "EDIT", "/miniblog/#{post.id}/edit" %>
         <%= link_to "DELETE", "#" %>
       <% end %>
     </p>
