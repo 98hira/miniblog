@@ -16,11 +16,17 @@ class MiniblogController < ApplicationController
 
   def edit
     @tweet = Tweet.find(params[:id])
+    redirect_to(action:"index") unless current_user.id == @tweet.user_id
   end
 
   def update
-    success_flag = Tweet.find(params[:id]).update(tweet_params)
-    @status = success_flag ? "成功": "失敗"
+    tweet = Tweet.find(params[:id])
+    if current_user.id == tweet.user_id
+      success_flag = tweet.update(tweet_params)
+      @status = success_flag ? "成功": "失敗"
+    else
+      redirect_to action:"index"
+    end
   end
 
   def show
@@ -28,13 +34,19 @@ class MiniblogController < ApplicationController
   end
 
   def destroy
-    success_flag = Tweet.find(params[:id]).destroy
-    @status = success_flag ? "成功": "失敗"
+    tweet = Tweet.find(params[:id])
+    if current_user.id == tweet.user_id
+      success_flag = tweet.destroy
+      @status = success_flag ? "成功": "失敗"
+    else
+      redirect_to action:"index"
+    end
   end
 
   private
   def tweet_params
-   params.permit(:text)
- end
+    params.permit(:text)
+  end
+
 
 end
