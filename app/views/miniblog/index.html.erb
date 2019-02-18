@@ -6,7 +6,7 @@
       <%= link_to "SHOW", "/miniblog/#{post.id}" %>
       <% if user_signed_in? && current_user.id == post.user_id %>
         <%= link_to "EDIT", "/miniblog/#{post.id}/edit" %>
-        <%= link_to "DELETE", "#" %>
+        <%= link_to "DELETE", "/miniblog/#{post.id}", method: :delete %>
       <% end %>
     </p>
   </div>
