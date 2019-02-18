@@ -21,6 +21,10 @@ class MiniblogController < ApplicationController
     @status = success_flag ? "成功": "失敗"
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   private
   def tweet_params
    params.permit(:text)
