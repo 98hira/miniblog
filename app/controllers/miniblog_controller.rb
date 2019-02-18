@@ -1,4 +1,6 @@
 class MiniblogController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Tweet.includes(:user)
   end
