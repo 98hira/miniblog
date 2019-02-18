@@ -1,5 +1,5 @@
-class Tweet < ApplicationRecord
+class Comment < ApplicationRecord
+  belongs_to :tweet
   belongs_to :user
   validates :text, presence: true
-  has_many :comments
 end
