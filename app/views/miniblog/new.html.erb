@@ -6,7 +6,7 @@
 <% end %>
 
 <h2>form_with</h2>
-<%= form_with url: "/miniblog" do |form| %>
+<%= form_with(url: "/miniblog", local: true) do |form| %>
   <%= form.text_area :text %>
   <%= form.submit %>
 <% end %>
